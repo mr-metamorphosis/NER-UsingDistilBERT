@@ -1,4 +1,4 @@
-### Named Entity Recognition (NER) with Hugging Face Transformers
+## Named Entity Recognition (NER) with Hugging Face Transformers
 
 This repository provides an example of how to fine-tune a pre-trained Transformer model for Named Entity Recognition (NER) using the Hugging Face Transformers library. The dataset used in this example is the CoNLL-2003 dataset, which includes annotations for four types of entities: Person, Organization, Location, and Miscellaneous.
 
@@ -12,7 +12,7 @@ Table of Contents
 6. Usage
 7. File Structure
 
-#### 1. Installation
+### 1. Installation
 
 To get started, you need to install the required libraries:
 bash
@@ -24,7 +24,7 @@ bash
 !pip install evaluate
 ```
 
-#### 2. Dataset Overview
+### 2. Dataset Overview
 
 The CoNLL-2003 dataset is used in this example. It is a standard dataset for NER tasks, containing the following entity types:
 PER: Person
@@ -37,3 +37,32 @@ The dataset is available in the datasets library and can be loaded easily with t
 from datasets import load_dataset
 data = load_dataset('conllpp')
 ```
+### 4. Code Explanation
+
+Data Preparation
+      4.1 Load and Explore the Dataset:
+      ``` 
+      data = load_dataset('conllpp')
+      ```
+      4.2 Inspect the Dataset Structure:
+      ```
+      data['train'].features
+      ```
+      4.3 Convert NER Tags to Human-Readable Format:
+       - Define mapping from tag indices to tag names and vice versa.
+      ```
+      tags = data['train'].features['ner_tags'].feature
+      index2tag = {idx:tag for idx, tag in enumerate(tags.names)}
+      tag2index = {tag:idx for idx, tag in enumerate(tags.names)}\
+      ```
+      4.4 Add Readable NER Tag Names:
+       - Create a new column with human-readable NER tag names.
+
+       ```
+       def create_tag_names(batch):
+          tag_name = {'ner_tags_str': [tags.int2str(idx) for idx in batch['ner_tags']]}
+          return tag_name
+       data = data.map(create_tag_names)
+
+
+
