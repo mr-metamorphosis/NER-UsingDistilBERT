@@ -74,7 +74,7 @@ then,
 Creating a Data Collation and Metrics system :
 <ol type ='num'> 
 <li> Data Collation: 
-<li> Use a data collator for token classification to handle padding and batching. </li>
+      <li> Use a data collator for token classification to handle padding and batching. </li>
 </li>
        
 
