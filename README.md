@@ -40,22 +40,22 @@ data = load_dataset('conllpp')
 ### 4. Code Explanation
 
 Data Preparation
-      4.1 Load and Explore the Dataset:
+      <li> 4.1 Load and Explore the Dataset:
       ``` 
       data = load_dataset('conllpp')
       ```
-      4.2 Inspect the Dataset Structure:
+     <li> 4.2 Inspect the Dataset Structure:
       ```
       data['train'].features
       ```
-      4.3 Convert NER Tags to Human-Readable Format:
+     <li> 4.3 Convert NER Tags to Human-Readable Format:
        - Define mapping from tag indices to tag names and vice versa.
       ```
       tags = data['train'].features['ner_tags'].feature
       index2tag = {idx:tag for idx, tag in enumerate(tags.names)}
       tag2index = {tag:idx for idx, tag in enumerate(tags.names)}\
       ```
-      4.4 Add Readable NER Tag Names:
+      <li> 4.4 Add Readable NER Tag Names:
        - Create a new column with human-readable NER tag names.
 
        ```
