@@ -64,5 +64,19 @@ Data Preparation
           return tag_name
        data = data.map(create_tag_names)
 
+       ```
+Then proceeded with the model building that includes 
+- Tokenization
+- Aligning Labels with Tokens
+- Tokenize and Align Labels
+
+then,
+Creating a Data Collation and Metrics system :
+<ol type ='num'> 
+<li> Data Collation: 
+<li> Use a data collator for token classification to handle padding and batching. </li>
+</li>
+       
+
 
 
