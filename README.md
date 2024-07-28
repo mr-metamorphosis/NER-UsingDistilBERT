@@ -1,16 +1,29 @@
-## Named Entity Recognition (NER) with Hugging Face Transformers
+# Named Entity Recognition (NER) with Hugging Face Transformers
 
 This repository provides an example of how to fine-tune a pre-trained Transformer model for Named Entity Recognition (NER) using the Hugging Face Transformers library. The dataset used in this example is the CoNLL-2003 dataset, which includes annotations for four types of entities: Person, Organization, Location, and Miscellaneous.
 
-Table of Contents
+## Table of Contents
 
-1. Installation
-2. Dataset Overview
-3. Code Explanation
-4. Model Training
-5. Evaluation and Results
-6. Usage
-7. File Structure
+1. [Installation](#installation)
+2. [Dataset Overview](#dataset-overview)
+3. [Code Explanation](#code-explanation)
+4. [Model Training](#model-training)
+5. [Evaluation and Results](#evaluation-and-results)
+6. [Usage](#usage)
+7. [File Structure](#file-structure)
+8. [Acknowledgments](#acknowledgments)
+9. [License](#license)
+
+## #Installation
+
+To get started, you need to install the required libraries:
+
+```bash
+pip install -U transformers
+pip install -U accelerate
+pip install -U datasets
+pip install seqeval
+pip install evaluate
 
 ### 1. Installation
 
@@ -74,8 +87,9 @@ then,
 Creating a Data Collation and Metrics system :
 <ol type ='num'> 
 <li> Data Collation: 
-      <ul><li> Use a data collator for token classification to handle padding and batching. </li><ul>
+      <ul><li> Use a data collator for token classification to handle padding and batching. </li></ul>
 </li>
+
        
 
 
